@@ -1,0 +1,55 @@
+type Query {
+  campaigns: [Campaign!]!
+}
+
+# Schema Types
+type Campaign {
+  id: Int!
+  name: String!
+  goal: String!
+  total_budget: Int!
+  status: String!
+  platforms: Platforms
+}
+
+type Platforms {
+    facebook: Platform
+    instagram: Platform
+    google: Platform
+}
+
+type Platform {
+    status:String!
+    total_budget:Int!
+    remaining_budget:Int!
+    start_date:Int!,
+    end_date:Int!,
+    target_audiance: TargetAudience,
+    creatives: Creatives,
+    insights:
+}
+
+type TargetAudience {
+    languages:[String!],
+    genders:[String!],
+    age_range:[Int!],
+    locations:[String!],
+    interests:[String!]
+}
+
+type Creatives {
+    header:String!,
+    description:String!,
+    url:String!
+    image:String!
+}
+
+type Insights {
+    impressions: Int!,
+    clicks: Int!,
+    nanos_score: Float!,
+    cost_per_click: Float!,
+    click_through_rate: Float!,
+    advanced_kpi_1: Float!,
+    advanced_kpi_2: Float!
+}
