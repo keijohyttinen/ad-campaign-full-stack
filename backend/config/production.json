@@ -1,0 +1,9 @@
+{
+    "Campaign": {
+        "dbConfig": {
+            "host": "localhost",
+            "port": 27017,
+            "name": "AdCampaign"
+        }
+    }
+}

@@ -2,6 +2,10 @@ type Query {
   campaigns: [Campaign!]!
 }
 
+type Mutation {
+  createCampaign(campaign: Campaign): String
+}
+
 # Schema Types
 type Campaign {
   id: Int!
@@ -22,34 +26,34 @@ type Platform {
     status:String!
     total_budget:Int!
     remaining_budget:Int!
-    start_date:Int!,
-    end_date:Int!,
-    target_audiance: TargetAudience,
-    creatives: Creatives,
-    insights:
+    start_date:Int!
+    end_date:Int!
+    target_audiance: TargetAudience
+    creatives: Creatives
+    insights: Insights
 }
 
 type TargetAudience {
-    languages:[String!],
-    genders:[String!],
-    age_range:[Int!],
-    locations:[String!],
+    languages:[String!]
+    genders:[String!]
+    age_range:[Int!]
+    locations:[String!]
     interests:[String!]
 }
 
 type Creatives {
-    header:String!,
-    description:String!,
+    header:String!
+    description:String!
     url:String!
     image:String!
 }
 
 type Insights {
-    impressions: Int!,
-    clicks: Int!,
-    nanos_score: Float!,
-    cost_per_click: Float!,
-    click_through_rate: Float!,
-    advanced_kpi_1: Float!,
+    impressions: Int!
+    clicks: Int!
+    nanos_score: Float!
+    cost_per_click: Float!
+    click_through_rate: Float!
+    advanced_kpi_1: Float!
     advanced_kpi_2: Float!
 }

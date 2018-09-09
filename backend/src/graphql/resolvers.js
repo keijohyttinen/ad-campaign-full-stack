@@ -1,8 +1,10 @@
+import logger from '../util/logger';
+
 export default {
   Query: {
     campaigns: async (parent, args, { models }) => {
       const Campaigns = await models.Campaign.find({});
-      console.log(Campaigns);
+      logger.debug(Campaigns);
       return Campaigns;
     },
   },

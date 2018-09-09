@@ -1,3 +1,10 @@
 module.exports = {
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "rules": {
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+    },
+    "root": true,
+    "env": {
+        "mocha": true
+    }
 };
