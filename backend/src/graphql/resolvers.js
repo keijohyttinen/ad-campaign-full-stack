@@ -3,8 +3,11 @@ import logger from '../util/logger';
 export default {
   Query: {
     campaigns: async (parent, args, { models }) => {
-      const Campaigns = await models.Campaign.find({});
-      logger.debug(Campaigns);
+      logger.debug(`Data in: ${args.id}`);
+      const Campaigns = args.id
+        ? await [models.Campaign.findOne({ id: args.id })]
+        : await models.Campaign.find({});
+      logger.debug(`Data out: ${Campaigns}`);
       return Campaigns;
     },
   },

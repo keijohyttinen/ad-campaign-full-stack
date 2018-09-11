@@ -6,5 +6,13 @@ module.exports = {
     "root": true,
     "env": {
         "mocha": true
-    }
+    },
+    "overrides": [
+        {
+            files: "*.test.js",
+            rules: {
+                "no-unused-expressions": "off"
+            }
+        }
+    ]
 };

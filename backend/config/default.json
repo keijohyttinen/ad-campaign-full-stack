@@ -3,7 +3,15 @@
         "dbConfig": {
             "host": "localhost",
             "port": 27017,
-            "name": "AdCampaign"
+            "name": "adcampaign"
+        },
+        "serverConfig": {
+            "port": 8080,
+            "fillDatabase": {
+                "enabled": true,
+                "dropDatabasePriorToFill": true,
+                "dataPath": "resources/data/data.json"
+            }
         }
     }
 }

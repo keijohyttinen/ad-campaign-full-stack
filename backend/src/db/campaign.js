@@ -60,7 +60,6 @@ const CampaignSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    required: true,
   },
   platforms: {
     type: Map,

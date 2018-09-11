@@ -1,38 +1,3 @@
-type Query {
-  campaigns: [Campaign!]!
-}
-
-type Mutation {
-  createCampaign(campaign: Campaign): String
-}
-
-# Schema Types
-type Campaign {
-  id: Int!
-  name: String!
-  goal: String!
-  total_budget: Int!
-  status: String!
-  platforms: Platforms
-}
-
-type Platforms {
-    facebook: Platform
-    instagram: Platform
-    google: Platform
-}
-
-type Platform {
-    status:String!
-    total_budget:Int!
-    remaining_budget:Int!
-    start_date:Int!
-    end_date:Int!
-    target_audiance: TargetAudience
-    creatives: Creatives
-    insights: Insights
-}
-
 type TargetAudience {
     languages:[String!]
     genders:[String!]
@@ -56,4 +21,44 @@ type Insights {
     click_through_rate: Float!
     advanced_kpi_1: Float!
     advanced_kpi_2: Float!
+}
+
+enum Status {
+    Delivering
+    Scheduled
+    Ended
+}
+
+type Platform {
+    status: Status!
+    total_budget: Int!
+    remaining_budget: Int!
+    start_date: Int!
+    end_date: Int!
+    target_audiance: TargetAudience
+    creatives: Creatives
+    insights: Insights
+}
+
+type Platforms {
+    facebook: Platform
+    instagram: Platform
+    google: Platform
+}
+
+type Campaign {
+    id: Int!
+    name: String!
+    goal: String!
+    total_budget: Int!
+    status: Status
+    platforms: Platforms
+}
+
+type Query {
+    campaigns(id: Int): [Campaign]
+}
+
+type Mutation {
+    createCampaign(id: Int!, name: String!, goal: String!, total_budget: Int!): Campaign
 }

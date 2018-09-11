@@ -5,7 +5,7 @@
 
 General
 - Docker
-- Yarn
+- Yarn  
 - Nodejs
 - Nongoose
 - React
@@ -20,5 +20,5 @@ Both sub-projects app and backend are using eslint configuration as part of yarn
 
 # Code Style Principles
 
-ES6 
+ES6 features enabled with Babel 7.
 
