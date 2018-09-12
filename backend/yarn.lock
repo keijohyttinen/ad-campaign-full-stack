@@ -1577,6 +1577,10 @@ es-to-primitive@^1.1.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.1"
 
+es6-promise@^4.2.2:
+  version "4.2.5"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.5.tgz#da6d0d5692efb461e082c14817fe2427d8f5d054"
+
 escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
@@ -2234,6 +2238,13 @@ graphql-yoga@^1.16.2:
   resolved "http://registry.npmjs.org/graphql/-/graphql-0.13.2.tgz#4c740ae3c222823e7004096f832e7b93b2108270"
   dependencies:
     iterall "^1.2.1"
+
+gridfs-promise@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/gridfs-promise/-/gridfs-promise-4.1.0.tgz#e872b742784c2bca36e0e370e7e37a7986de9b9c"
+  dependencies:
+    es6-promise "^4.2.2"
+    mongodb "^3.1.1"
 
 growl@1.10.5:
   version "1.10.5"
@@ -2911,7 +2922,7 @@ mongodb-core@3.1.3:
   optionalDependencies:
     saslprep "^1.0.0"
 
-mongodb@3.1.4:
+mongodb@3.1.4, mongodb@^3.1.1:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.1.4.tgz#0ff07a7409a4edf05e71f9ff8df3633bd278ed53"
   dependencies:
