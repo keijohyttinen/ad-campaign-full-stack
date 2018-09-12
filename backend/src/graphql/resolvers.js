@@ -13,12 +13,6 @@ export default {
   },
   Mutation: {
     createCampaign: async (parent, { name, goal, totalBudget }, { models }) => {
-      const Campaign = await models.Campaign.findOne({ name });
-
-      if (Campaign) {
-        throw new Error('Please provide a unique title.');
-      }
-
       const status = 'Delivering'; // "Ended", "Scheduled"
 
       // create a new Campaign
@@ -33,10 +27,17 @@ export default {
       try {
         await newCampaign.save();
       } catch (e) {
-        throw new Error('Cannot Save Campaign!!!');
+        logger.error('Cannot Save Campaign %s', e);
+        throw new Error('Cannot Create Campaign!!!');
       }
 
-      return true;
+      return newCampaign;
     },
+    updateCampaign: async (parent, { args }, { models }) => models.Campaign.findOneAndUpdate({
+      id: args.id,
+    }, { args }),
+    deleteCampaign: async (parent, { args }, { models }) => models.Campaign.findOneAndDelete({
+      id: args.id,
+    }),
   },
 };

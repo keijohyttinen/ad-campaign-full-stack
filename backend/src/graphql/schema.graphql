@@ -44,6 +44,7 @@ type Platforms {
     facebook: Platform
     instagram: Platform
     google: Platform
+    adwords: Platform
 }
 
 type Campaign {
@@ -55,10 +56,46 @@ type Campaign {
     platforms: Platforms
 }
 
+##Inputs - little bit reduced compared to types
+## Do not allow editing of all params but some are decided/calculated by backend 
+
+input TargetAudienceInput {
+    languages:[String!]
+    genders:[String!]
+    age_range:[Int!]
+    locations:[String!]
+    interests:[String!]
+}
+
+input PlatformInput {
+    status: Status!
+    total_budget: Int!
+    start_date: Int!
+    end_date: Int!
+    target_audiance: TargetAudienceInput
+}
+
+input PlatformsInput{
+    facebook: PlatformInput
+    instagram: PlatformInput
+    google: PlatformInput
+    adwords: PlatformInput
+}
+
+input CampaignInput {
+    name: String!
+    goal: String!
+    total_budget: Int!
+    status: Status
+    platforms: PlatformsInput
+}
+
 type Query {
     campaigns(id: Int): [Campaign]
 }
 
 type Mutation {
     createCampaign(id: Int!, name: String!, goal: String!, total_budget: Int!): Campaign
+    updateCampaign(campaign: CampaignInput!): Campaign
+    deleteCampaign(id: Int!): Campaign
 }
