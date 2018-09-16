@@ -22,9 +22,10 @@
     "bluebird": "^3.5.2",
     "config": "^2.0.1",
     "graphql-yoga": "^1.16.2",
-    "gridfs-promise": "^4.1.0",
+    "gridfs-stream": "^1.1.1",
     "mongoose": "^5.2.13",
     "morgan": "^1.9.0",
+    "underscore": "^1.9.1",
     "winston": "^3.1.0"
   },
   "devDependencies": {
