@@ -1,16 +1,39 @@
-import { use, request } from 'chai';
 import assert from 'assert';
-import chaiHttp from 'chai-http';
-import Campaign from '../src/db/campaign';
+import fs from 'fs';
+import path from 'path';
 import serverStartupDone from '../src/index';
 
-/* import fs from 'fs';
-import path from 'path';
-import EasyGraphQLTester from 'easygraphql-tester';
-const schemaCode = fs.readFileSync(path.join(__dirname, '..', 'src', 'graphql', 'schema.graphql'), 'utf8');
-*/
+const request = require('supertest');
 
-use(chaiHttp);
+function binaryParser(res, callback) {
+  res.setEncoding('binary');
+  res.data = '';
+  res.on('data', (chunk) => {
+    res.data += chunk;
+  });
+  res.on('end', () => {
+    callback(null, Buffer.from(res.data, 'binary'));
+  });
+}
+
+const imageRequest = (expressServer, imageName) => new Promise((resolve, reject) => {
+  request(expressServer)
+    .get(`/images/${imageName}`)
+    .set('content-type', 'application/json')
+    .buffer()
+    .parse(binaryParser)
+    .end((err, res) => {
+      if (err) {
+        reject(err);
+      }
+      assert.ok(Buffer.isBuffer(res.body));
+      const originalImageBuf = fs.readFileSync(path.resolve(`./resources/images/${imageName}`));
+      assert.ok(originalImageBuf.equals(res.body), 'Image got not match with original');
+      assert.equal(res.error, false, `error: ${res.error}, text: ${res.text}`);
+      assert.equal(res.status, 200);
+      resolve();
+    });
+});
 
 describe('Test Campaigns API', () => {
   let expressServer;
@@ -23,6 +46,9 @@ describe('Test Campaigns API', () => {
   afterEach((done) => {
     done();
   });
+  /* after(() => {
+    expressServer.
+  }); */
   describe('Query campaigns', () => {
     const queryAllCampaigns = {
       query: `query getCampaign($id: Int) {
@@ -127,6 +153,10 @@ describe('Test Campaigns API', () => {
           });
           done();
         });
+    });
+    it('should get all images successfully', () => {
+      const imageNames = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg'];
+      return Promise.each(imageNames, imageName => imageRequest(expressServer, imageName));
     });
   });
 });

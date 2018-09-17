@@ -1,6 +1,5 @@
 import fs from 'fs';
 import Promise from 'bluebird';
-import logger from '../util/logger';
 
 const Grid = require('gridfs-stream');
 
@@ -27,7 +26,6 @@ function write(fileSourcePath, filename, contentType) {
     const writestream = imageGfs.grid.createWriteStream({
       filename,
       content_type: contentType,
-      // root: 'images',
     });
     fs.createReadStream(fileSourcePath)
       .pipe(writestream)
@@ -35,23 +33,20 @@ function write(fileSourcePath, filename, contentType) {
         reject(err);
       })
       .on('close', (file) => {
-        logger.debug(`Filename ${file.filename} added into DB `);
-        resolve(writestream);
+        resolve(file);
       });
   });
 }
 
-function readStreamByFilename(filename) {
+function readStreamByFilename(options) {
   return imageGfs.grid.createReadStream({
-    filename,
-    root: 'images',
+    filename: options.filename,
   });
 }
 
-function readStreamById(objectId) {
+function readStreamById(options) {
   return imageGfs.grid.createReadStream({
-    _id: objectId,
-    root: 'images',
+    _id: options.objectId,
   });
 }
 

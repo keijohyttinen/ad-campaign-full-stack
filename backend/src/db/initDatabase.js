@@ -12,7 +12,7 @@ function getResourcePath(...resourcePaths) {
   return resourcePaths.reduce((prefix, ending) => path.join(prefix, ending));
 }
 
-function saveImages(dependencies, pf) {
+function saveTestImages(dependencies, pf) {
   const imagePath = getResourcePath(srvConfig.fillDatabase.imagePath, pf.creatives.image);
   if (!fs.existsSync(imagePath)) {
     throw new Error(`Image does not exist ${imagePath}`);
@@ -21,20 +21,25 @@ function saveImages(dependencies, pf) {
     .then((found) => {
       if (!found) {
         const contentType = imagePath.split('.').pop();
-        return dependencies.images.write(imagePath, pf.creatives.image, `image/${contentType}`);
+        return dependencies.images.write(imagePath, pf.creatives.image, `image/${contentType}`)
+          .then(() => {
+            logger.debug(`Filename '${pf.creatives.image}' added into DB`);
+          });
       }
       logger.debug(`Filename '${pf.creatives.image}' exists already in DB`);
       return Promise.resolve(`Filename '${pf.creatives.image}' exists already in DB`);
     });
 }
 
-function addNewItems(dependencies) {
+function addTestItems(dependencies) {
   const campaigns = JSON.parse(fs.readFileSync(getResourcePath(srvConfig.fillDatabase.dataPath)));
   return Promise.each(campaigns, (campaign) => {
     const dbItem = new dependencies.models.Campaign(campaign);
     return dbItem.save().tap(() => {
       logger.debug(`Added campaign: ${campaign.name}`);
-    }).then(() => Promise.each(_.values(campaign.platforms), pf => saveImages(dependencies, pf)));
+    }).then(() => Promise.each(
+      _.values(campaign.platforms), pf => saveTestImages(dependencies, pf),
+    ));
   });
 }
 
@@ -50,7 +55,7 @@ export default function initDatabase(dependencies) {
             logger.debug('Cleaned up campaigns');
           });
         }
-        return dropPromise.then(() => addNewItems(dependencies));
+        return dropPromise.then(() => addTestItems(dependencies));
       }
       return Promise.resolve();
     });
