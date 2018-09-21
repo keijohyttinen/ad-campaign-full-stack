@@ -1,3 +1,7 @@
+schema {
+  query: Query
+}
+
 type TargetAudience {
     languages:[String!]
     genders:[String!]
@@ -48,7 +52,7 @@ type Platforms {
 }
 
 type Campaign {
-    id: Int!
+    id: ID
     name: String!
     goal: String!
     total_budget: Int!
@@ -91,11 +95,11 @@ input CampaignInput {
 }
 
 type Query {
-    campaigns(id: Int): [Campaign]
+    campaigns(id: ID): [Campaign]
 }
 
 type Mutation {
-    createCampaign(id: Int!, name: String!, goal: String!, total_budget: Int!): Campaign
+    createCampaign(id: ID!, name: String!, goal: String!, total_budget: Int!): Campaign
     updateCampaign(campaign: CampaignInput!): Campaign
-    deleteCampaign(id: Int!): Campaign
+    deleteCampaign(id: ID!): Campaign
 }

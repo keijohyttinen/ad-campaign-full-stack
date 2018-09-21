@@ -51,7 +51,7 @@ describe('Test Campaigns API', () => {
   }); */
   describe('Query campaigns', () => {
     const queryAllCampaigns = {
-      query: `query getCampaign($id: Int) {
+      query: `query getCampaign($id: ID) {
         campaigns(id: $id){
           id
           name
@@ -74,19 +74,19 @@ describe('Test Campaigns API', () => {
             campaigns: [
               {
                 goal: 'Increase Reach',
-                id: 100000001,
+                id: '100000001',
                 name: 'Test Ad 1',
                 total_budget: 120,
               },
               {
                 goal: 'Raise Awareness',
-                id: 100000002,
+                id: '100000002',
                 name: 'Test Ad 2',
                 total_budget: 360,
               },
               {
                 goal: 'Raise Awareness',
-                id: 100000003,
+                id: '100000003',
                 name: 'Test Ad 3',
                 total_budget: 90,
               },
@@ -97,7 +97,7 @@ describe('Test Campaigns API', () => {
     });
     it('should QUERY single campaign successfully', (done) => {
       const querySingleCampaigns = {
-        query: `query getCampaign($id: Int) {
+        query: `query getCampaign($id: ID) {
           campaigns(id: $id){
             id
             name
@@ -105,7 +105,7 @@ describe('Test Campaigns API', () => {
             total_budget
           }
         }`,
-        variables: { id: 100000003 },
+        variables: { id: '100000003' },
       };
       request(expressServer)
         .post('/graphql')
@@ -119,7 +119,7 @@ describe('Test Campaigns API', () => {
             campaigns: [
               {
                 goal: 'Raise Awareness',
-                id: 100000003,
+                id: '100000003',
                 name: 'Test Ad 3',
                 total_budget: 90,
               },
@@ -130,7 +130,7 @@ describe('Test Campaigns API', () => {
     });
     it('should QUERY single campaign, which does not exist, successfully', (done) => {
       const querySingleCampaigns = {
-        query: `query getCampaign($id: Int) {
+        query: `query getCampaign($id: ID) {
           campaigns(id: $id){
             id
             name
@@ -138,7 +138,7 @@ describe('Test Campaigns API', () => {
             total_budget
           }
         }`,
-        variables: { id: 1 },
+        variables: { id: '1' },
       };
       request(expressServer)
         .post('/graphql')
