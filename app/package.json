@@ -1,0 +1,32 @@
+{
+  "name": "AdCampaignApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "relay": "relay-compiler --src ./src --schema ./schema.graphql",
+    "icon": "./node_modules/.bin/react-native-icon"
+  },
+  "dependencies": {
+    "eslint": "^5.5.0",
+    "react": "16.4.1",
+    "react-native": "0.56.0",
+    "react-native-icon": "^0.2.10",
+    "react-navigation": "^2.12.1",
+    "react-relay": "^1.6.2",
+    "relay": "^0.8.0-1"
+  },
+  "devDependencies": {
+    "babel-jest": "23.4.2",
+    "babel-plugin-relay": "^1.6.2",
+    "babel-preset-react-native": "^5",
+    "graphql": "^14.0.2",
+    "jest": "23.5.0",
+    "react-test-renderer": "16.4.1",
+    "relay-compiler": "^1.6.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

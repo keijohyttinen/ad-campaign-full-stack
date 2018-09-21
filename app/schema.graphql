@@ -1,0 +1,109 @@
+schema {
+  query: Query
+}
+
+type TargetAudience {
+    languages:[String!]
+    genders:[String!]
+    age_range:[Int!]
+    locations:[String!]
+    interests:[String!]
+}
+
+type Creatives {
+    header:String!
+    description:String!
+    url:String!
+    image:String!
+}
+
+type Insights {
+    impressions: Int!
+    clicks: Int!
+    nanos_score: Float!
+    cost_per_click: Float!
+    click_through_rate: Float!
+    advanced_kpi_1: Float!
+    advanced_kpi_2: Float!
+}
+
+enum Status {
+    Delivering
+    Scheduled
+    Ended
+}
+
+type Platform {
+    status: Status!
+    total_budget: Int!
+    remaining_budget: Int!
+    start_date: Int!
+    end_date: Int!
+    target_audiance: TargetAudience
+    creatives: Creatives
+    insights: Insights
+}
+
+type Platforms {
+    facebook: Platform
+    instagram: Platform
+    google: Platform
+    adwords: Platform
+}
+
+type Campaign {
+    id: ID
+    name: String!
+    goal: String!
+    total_budget: Int!
+    status: Status
+    platforms: Platforms
+}
+
+##Inputs - little bit reduced compared to types
+## Do not allow editing of all params but some are decided/calculated by backend 
+
+input TargetAudienceInput {
+    languages:[String!]
+    genders:[String!]
+    age_range:[Int!]
+    locations:[String!]
+    interests:[String!]
+}
+
+input PlatformInput {
+    status: Status!
+    total_budget: Int!
+    start_date: Int!
+    end_date: Int!
+    target_audiance: TargetAudienceInput
+}
+
+input PlatformsInput{
+    facebook: PlatformInput
+    instagram: PlatformInput
+    google: PlatformInput
+    adwords: PlatformInput
+}
+
+input CampaignInput {
+    name: String!
+    goal: String!
+    total_budget: Int!
+    status: Status
+    platforms: PlatformsInput
+}
+
+type Query {
+    campaigns(id: ID): [Campaign]
+}
+
+type Mutation {
+    createCampaign(id: ID!, name: String!, goal: String!, total_budget: Int!): Campaign
+    updateCampaign(campaign: CampaignInput!): Campaign
+    deleteCampaign(id: ID!): Campaign
+}
+
+
+
+
