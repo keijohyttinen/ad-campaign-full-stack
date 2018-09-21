@@ -21,6 +21,7 @@
 - gridfs-promise https://github.com/larsdecker/gridfs-promise
 - winston https://www.npmjs.com/package/winston
 - Mocha 
+- Babel CLI (npm install -g babel-cli)
 
 # Design & Implementation
 

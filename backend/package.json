@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha --require @babel/register --require @babel/polyfill **/*.test.js",
-    "dev": "nodemon --exec babel-node src/index.js",
+    "dev": "nodemon --exec babel src/index.js",
     "build": "NODE_ENV=PRODUCTION babel src -d dist --copy-files",
     "serve": "NODE_ENV=production node dist/index.js",
     "cleanlog": "rm all-logs.log"
@@ -29,8 +29,8 @@
     "winston": "^3.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
