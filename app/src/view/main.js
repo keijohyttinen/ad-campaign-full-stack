@@ -5,7 +5,7 @@ import {
   graphql
 } from 'react-relay';
 
-import { StackNavigator } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation'
 
 import { environment } from '../relayEnvironment';
 import LoadingComponent from '../components/loadingComponent';
@@ -40,7 +40,7 @@ class Main extends Component {
             const msg = `Error occured:\n${error.message}`
             return <LoadingComponent message={msg} />
           } else if (props) {
-            return <CampaignList data={props} {...this.props} />
+            //return <CampaignMainView data={props} {...this.props} />
           }
           return <LoadingComponent message='Loading' />
         }}
@@ -49,7 +49,7 @@ class Main extends Component {
   }
 }
 
-const Nav = StackNavigator({
+const Nav = createStackNavigator({
   Home: { screen: Main },
   Campaigns: { screen: CampaignAlbums },
 });

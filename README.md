@@ -22,3 +22,7 @@ Both sub-projects app and backend are using eslint configuration as part of yarn
 
 ES6 features enabled with Babel 7.
 
+# Dependency management
+
+Dependencies are managed with Yarn, which biggest benefit over npm is that with help of lock file it can guarantee exactly same versions of the dependencies are loaded when installed dependencies from the scratch.
+

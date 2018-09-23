@@ -6,27 +6,42 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "relay": "relay-compiler --src ./src --schema ./schema.graphql",
-    "icon": "./node_modules/.bin/react-native-icon"
+    "icon": "app-icon generate"
   },
   "dependencies": {
-    "eslint": "^5.5.0",
-    "react": "16.4.1",
-    "react-native": "0.56.0",
-    "react-native-icon": "^0.2.10",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "app-icon": "^0.6.3",
+    "react": "16.5.0",
+    "react-native": "0.57.0",
     "react-navigation": "^2.12.1",
     "react-relay": "^1.6.2",
     "relay": "^0.8.0-1"
   },
   "devDependencies": {
-    "babel-jest": "23.4.2",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "7.0.0",
+    "@babel/plugin-transform-async-to-generator": "^7.1.0",
+    "@babel/plugin-transform-regenerator": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "babel-plugin-relay": "^1.6.2",
-    "babel-preset-react-native": "^5",
-    "graphql": "^14.0.2",
-    "jest": "23.5.0",
-    "react-test-renderer": "16.4.1",
+    "eslint": "^5.6.0",
+    "graphql": "0.13.0",
+    "jest": "^23.6.0",
+    "metro-react-native-babel-preset": "^0.45.6",
+    "react-test-renderer": "^16.5.2",
+    "regenerator-runtime": "^0.12.1",
     "relay-compiler": "^1.6.2"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-navigation)"
+    ]
   }
 }
