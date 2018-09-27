@@ -30,7 +30,6 @@ export default class CampaignAlbums extends Component {
         //keyExtractor={(item, index) => item.node.key}
         renderItem={({ item }) =>
           <View style={styles.row}>
-
             <View style={styles.descriptionView}>
               <Text style={styles.title}>{item.goal}</Text>
               <Text style={styles.description}>{item.status}</Text>

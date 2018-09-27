@@ -6,10 +6,10 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import {
+/*import {
   createFragmentContainer,
   graphql
-} from 'react-relay';
+} from 'react-relay';*/
 
 class CampaignRow extends Component {
   render() {

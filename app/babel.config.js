@@ -6,6 +6,7 @@ module.exports = function (api) {
         "module:metro-react-native-babel-preset"
     ];
     const plugins = [
+        "@babel/plugin-transform-flow-strip-types",
         "@babel/plugin-proposal-class-properties",
         "@babel/plugin-transform-regenerator",
         "@babel/plugin-transform-async-to-generator",

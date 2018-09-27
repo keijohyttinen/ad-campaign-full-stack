@@ -14,9 +14,10 @@ import {
 
 import CampaignRow from './campaignRow';
 
-class campaignMainView extends Component {
+class CampaignMainView extends Component {
   render() {
     const data = this.props.data;
+    console.log("campaignMainView:", this.props);
     return (
       <FlatList
         style={{ flex: 1 }}
@@ -29,8 +30,8 @@ class campaignMainView extends Component {
 
 //keyExtractor={(item, index) => item.node.key}
 
-export default createFragmentContainer(campaignMainView, graphql`
-fragment campaignMainView on Campaign{
+export default createFragmentContainer(CampaignMainView, graphql`
+fragment CampaignMainView on Campaign{
   id
   name
   goal

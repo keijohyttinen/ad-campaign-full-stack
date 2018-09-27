@@ -40,7 +40,7 @@ class Main extends Component {
             const msg = `Error occured:\n${error.message}`
             return <LoadingComponent message={msg} />
           } else if (props) {
-            //return <CampaignMainView data={props} {...this.props} />
+            return <CampaignMainView data={props} {...this.props} />
           }
           return <LoadingComponent message='Loading' />
         }}
