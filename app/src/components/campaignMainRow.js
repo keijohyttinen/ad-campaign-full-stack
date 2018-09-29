@@ -6,36 +6,34 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-/*import {
-  createFragmentContainer,
-  graphql
-} from 'react-relay';*/
-
-class CampaignRow extends Component {
+class CampaignMainRow extends Component {
   render() {
-    console.log("CampaignRow", this.props);
+    console.log("CampaignMainRow", this.props);
     const { navigate } = this.props.navigation;
     return (
       <TouchableOpacity style={styles.row}
-        onPress={() => navigate('Campaigns', { ...this.props })}>
+        onPress={() => navigate('CampaignDetails', { ...this.props })}>
         <View>
           <Text>
             {this.props.name}
+          </Text>
+          <Text>
+            {this.props.goal}
           </Text>
         </View>
         <View style={styles.spaceView}>
         </View>
         <View style={styles.nextIcon}>
           <Text>
-            ->
-            </Text>
+            >
+          </Text>
         </View>
       </TouchableOpacity>
     )
   }
 }
 
-export default CampaignRow;
+export default CampaignMainRow;
 
 const styles = StyleSheet.create({
   row: {

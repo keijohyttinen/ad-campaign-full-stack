@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 
 import {
@@ -9,14 +10,12 @@ import { createStackNavigator } from 'react-navigation'
 
 import { environment } from '../relayEnvironment';
 import LoadingComponent from '../components/loadingComponent';
-import CampaignMainView from '../components/campaignMainView';
-import CampaignAlbums from '../components/campaignAlbums';
+import CampaignMainView from '../components/campaignMainViewList';
+import CampaignDetails from '../components/campaignDetails';
 
 const campaignQuery = graphql`
-query mainQuery{
-    campaigns {
-      ...campaignMainView
-    }
+  query mainQuery{ 
+      ...campaignMainViewList
   }
 `
 
@@ -51,7 +50,7 @@ class Main extends Component {
 
 const Nav = createStackNavigator({
   Home: { screen: Main },
-  Campaigns: { screen: CampaignAlbums },
+  CampaignDetails: { screen: CampaignDetails },
 });
 
 export default Nav;

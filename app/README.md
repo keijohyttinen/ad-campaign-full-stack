@@ -4,12 +4,18 @@
 # Make Development build in Mac
 
 `yarn run relay --watch`  <-- compile relay continuously with watch
+`yarn test`   <-- run unit tests
 
-`react-native run-ios`
+`yarn ios`  <-- run ios react native
 
 # Watch console logs
 
 `react-native log-ios`
+
+# Useful commands
+
+when having weird issue, suggest to reset tranform cache by
+`react-native start --reset-cache`
 
 # Generate new icons
 

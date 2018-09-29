@@ -1,24 +1,27 @@
 {
   "name": "AdCampaignApp",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
+  "author": "Keijo Hyttinen",
+  "license": "MIT",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "relay": "relay-compiler --src ./src --schema ./schema.graphql",
     "relay:watch": "yarn relay --watch",
+    "ios": "react-native run-ios",
     "icon": "app-icon generate"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "@babel/runtime": "^7.0.0",
-    "app-icon": "^0.6.3",
+    "@babel/runtime": "^7.1.2",
     "prop-types": "^15.6.2",
     "react": "16.5.0",
     "react-native": "0.57.0",
     "react-navigation": "^2.16.0",
     "react-relay": "^1.6.2",
-    "relay": "^0.8.0-1"
+    "relay": "^0.8.0-1",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -30,10 +33,15 @@
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "app-icon": "^0.6.3",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-plugin-relay": "^1.6.2",
     "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
     "graphql": "0.13.0",
     "jest": "^23.6.0",
     "metro-react-native-babel-preset": "^0.45.6",

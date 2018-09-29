@@ -24,6 +24,7 @@ exports[`renders correctly 1`] = `
     <Text>
       Campaing Row prints TestName-2
     </Text>
+    <Text />
   </View>
   <View
     style={
@@ -40,7 +41,7 @@ exports[`renders correctly 1`] = `
     }
   >
     <Text>
-      -&gt;
+      &gt;
     </Text>
   </View>
 </View>
