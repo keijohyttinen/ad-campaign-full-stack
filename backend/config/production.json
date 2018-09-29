@@ -3,7 +3,21 @@
         "dbConfig": {
             "host": "localhost",
             "port": 27017,
-            "name": "adcampaign"
+            "name": "adcampaign",
+            "mongoOptions": {
+                "socketTimeoutMS": 0,
+                "keepAlive": true,
+                "reconnectTries": 30
+            }
+        },
+        "serverConfig": {
+            "port": 8080,
+            "fillDatabase": {
+                "enabled": true,
+                "dropDatabasePriorToFill": true,
+                "dataPath": "resources/data/data.json",
+                "imagePath": "resources/images"
+            }
         }
     }
 }

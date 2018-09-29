@@ -46,9 +46,7 @@ describe('Test Campaigns API', () => {
   afterEach((done) => {
     done();
   });
-  /* after(() => {
-    expressServer.
-  }); */
+
   describe('Query campaigns', () => {
     const queryAllCampaigns = {
       query: `query getCampaign($id: ID) {
