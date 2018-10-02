@@ -156,5 +156,132 @@ describe('Test Campaigns API', () => {
       const imageNames = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg'];
       return Promise.each(imageNames, imageName => imageRequest(expressServer, imageName));
     });
+
+    it('should QUERY single platforms with fragments', (done) => {
+      const querySingleCampaigns = {
+        query: `query getCampaign($id: ID) {
+          campaigns(id: $id){
+            id
+            name
+            goal
+            total_budget
+            platforms {
+                ...campaignDetailsPlatformList
+            }
+          }
+        }
+        fragment campaignDetailsPlatformList on Platforms{
+            facebook {
+              ...campaignDetailsPlatformRow
+            }
+            instagram {
+              ...campaignDetailsPlatformRow
+            }
+        }
+        fragment campaignDetailsPlatformRow on Platform{
+            status
+            total_budget
+            remaining_budget
+            start_date
+            end_date
+            target_audiance {
+              languages
+              genders
+              age_range
+              locations
+              interests
+            }
+        }
+        `,
+        variables: { id: '100000003' },
+      };
+      request(expressServer)
+        .post('/graphql')
+        .set('content-type', 'application/json')
+        .send(querySingleCampaigns)
+        .end((err, res) => {
+          assert.equal(err, null);
+          assert.equal(res.error, false, `error: ${res.error}, text: ${res.text}`);
+          assert.equal(res.status, 200);
+          assert.deepStrictEqual(res.body.data, {
+            campaigns: [
+              {
+                goal: 'Raise Awareness',
+                id: '100000003',
+                name: 'Test Ad 3',
+                platforms: {
+                  facebook: {
+                    end_date: '1535580000000',
+                    remaining_budget: 40,
+                    start_date: '1532901600000',
+                    status: 'Scheduled',
+                    target_audiance: {
+                      languages: [
+                        'EN',
+                      ],
+                      genders: [
+                        'M',
+                        'F',
+                      ],
+                      age_range: [
+                        20,
+                        65,
+                      ],
+                      locations: [
+                        'Switzerland',
+                      ],
+                      interests: [
+                        'Software Development',
+                        'React Native',
+                        'Angular',
+                        'React',
+                        'VueJS',
+                        'Frontend Development',
+                      ],
+                    },
+                    total_budget: 40,
+                  },
+                  instagram: {
+                    end_date: '1535580000000',
+                    remaining_budget: 40,
+                    start_date: '1532901600000',
+                    status: 'Scheduled',
+                    target_audiance: {
+                      languages: [
+                        'EN',
+                      ],
+                      genders: [
+                        'M',
+                        'F',
+                      ],
+                      age_range: [
+                        20,
+                        45,
+                      ],
+                      locations: [
+                        'Switzerland',
+                      ],
+                      interests: [
+                        'Software Development',
+                        'React Native',
+                        'Angular',
+                        'React',
+                        'VueJS',
+                        'Frontend Development',
+                        'NodeJS',
+                        'Facebook Developer',
+                        'Wordpress',
+                      ],
+                    },
+                    total_budget: 50,
+                  },
+                },
+                total_budget: 90,
+              },
+            ],
+          });
+          done();
+        });
+    });
   });
 });

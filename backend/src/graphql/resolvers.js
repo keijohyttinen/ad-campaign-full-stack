@@ -5,9 +5,14 @@ export default {
     campaigns: async (parent, args, { models }) => {
       logger.debug(`Data in: ${args.id}`);
       const Campaigns = args.id
-        ? await [models.Campaign.findOne({ id: args.id })]
-        : await models.Campaign.find({});
-      logger.debug(`Data out: ${Campaigns}`);
+        ? await [models.Campaign.findOne({ id: args.id }).then((result) => {
+          logger.debug(`Data out object: ${result}`);
+          return result;
+        })]
+        : await models.Campaign.find({}).then((result) => {
+          logger.debug(`Data out object: ${result}`);
+          return result;
+        });
       return Campaigns;
     },
   },

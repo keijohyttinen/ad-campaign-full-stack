@@ -62,8 +62,10 @@ const CampaignSchema = new mongoose.Schema({
     type: String,
   },
   platforms: {
-    type: Map,
-    of: PlatformSchema,
+    facebook: PlatformSchema,
+    instagram: PlatformSchema,
+    google: PlatformSchema,
+    adwords: PlatformSchema,
   },
 });
 
