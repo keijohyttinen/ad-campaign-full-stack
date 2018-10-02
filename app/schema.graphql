@@ -11,7 +11,9 @@ type TargetAudience {
 }
 
 type Creatives {
-    header:String!
+    header:String
+    header_1:String
+    header_2:String
     description:String!
     url:String!
     image:String!
@@ -20,11 +22,11 @@ type Creatives {
 type Insights {
     impressions: Int!
     clicks: Int!
-    nanos_score: Float!
+    nanos_score: Float
     cost_per_click: Float!
     click_through_rate: Float!
     advanced_kpi_1: Float!
-    advanced_kpi_2: Float!
+    advanced_kpi_2: Float
 }
 
 enum Status {
@@ -37,8 +39,8 @@ type Platform {
     status: Status!
     total_budget: Int!
     remaining_budget: Int!
-    start_date: Int!
-    end_date: Int!
+    start_date: String!
+    end_date: String!
     target_audiance: TargetAudience
     creatives: Creatives
     insights: Insights
@@ -74,8 +76,8 @@ input TargetAudienceInput {
 input PlatformInput {
     status: Status!
     total_budget: Int!
-    start_date: Int!
-    end_date: Int!
+    start_date: String!
+    end_date: String!
     target_audiance: TargetAudienceInput
 }
 

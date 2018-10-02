@@ -10,9 +10,13 @@ import {
 } from 'react-native';
 
 import {
-  createFragmentContainer,
+  QueryRenderer,
   graphql
 } from 'react-relay';
+
+import LoadingComponent from './loadingComponent';
+import CampaignDetailsPlatformList from './campaignDetailsPlatformList';
+import { environment } from '../relayEnvironment';
 
 const { width, height } = Dimensions.get('window');
 
@@ -23,6 +27,7 @@ const queryCampaignDetails = graphql`
         name
         goal
         total_budget
+        status
         platforms {
           ...campaignDetailsPlatformList
         }
@@ -41,27 +46,44 @@ export default class CampaignDetails extends Component {
   });
   render() {
     const campaignData = this.props.navigation.state.params;
-
+    const variables = {
+      id: campaignData.id
+    };
     return (
       <QueryRenderer
         environment={environment}
         query={queryCampaignDetails}
-        variables={campaignData.id}
+        variables={variables}
         render={({ error, props }) => {
 
           if (error) {
             const msg = `Error occured:\n${error.message}`
             return <LoadingComponent message={msg} />
           } else if (props) {
-            return <View>
-              <View style={styles.descriptionView}>
-                <Text style={styles.title}>{props.goal}</Text>
-                <Text style={styles.title}>{props.total_budget}</Text>
-                <Text style={styles.description}>{props.status}</Text>
+            if (props.campaigns == null || props.campaigns.length !== 1) {
+              return <LoadingComponent message={'Error occured in fetching data from server, please retry'} />
+            }
+            const data = props.campaigns[0];
+            return <CampaignDetailsPlatformList data={data.platforms} headerData={data} {...this.props} />
+            /*return <View>
+              <View style={styles.container}>
+                <Text style={styles.title}>{data.name}</Text>
               </View>
-            </View>
+              <View style={{
+                flexDirection: 'column',
+                height: 100,
+                padding: 20,
+              }}>
+                <Text>{data.goal}</Text>
+                <Text>{data.total_budget}</Text>
+                <Text>{data.status}</Text>
+              </View>
+              <View style={styles.container}>
+                <CampaignDetailsPlatformList data={data.platforms} {...this.props} />
+              </View>
+            </View >*/
           }
-          return <LoadingComponent message='Loading' />
+          return <LoadingComponent message='Loading...' />
         }}
       />
 
@@ -70,8 +92,8 @@ export default class CampaignDetails extends Component {
 }
 
 /*<Image style={styles.image}
-  source={{ uri: item.node.coverUrl }}
-/>*/
+                source={{ uri: item.node.coverUrl }}
+              />*/
 
 const styles = StyleSheet.create({
   container: {
@@ -90,7 +112,7 @@ const styles = StyleSheet.create({
   },
   descriptionView: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'row',
     padding: 10
   },
   title: {

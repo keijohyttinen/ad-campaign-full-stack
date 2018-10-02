@@ -17,7 +17,7 @@ import CampaignMainRow from './campaignMainRow';
 class campaignMainViewList extends Component {
   render() {
     const dataList = this.props.data.campaigns;
-    console.log("campaignMainView:", this.props);
+    console.log("campaignMainView:", JSON.stringify(dataList));
     return (
       <FlatList
         style={{ flex: 1 }}

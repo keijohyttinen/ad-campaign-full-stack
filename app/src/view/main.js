@@ -41,7 +41,7 @@ class Main extends Component {
           } else if (props) {
             return <CampaignMainView data={props} {...this.props} />
           }
-          return <LoadingComponent message='Loading' />
+          return <LoadingComponent message='Loading...' />
         }}
       />
     );

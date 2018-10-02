@@ -6,6 +6,13 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import {
+  createFragmentContainer,
+  graphql
+} from 'react-relay';
+
+
+
 /* schema:
 type Platform {
     status: Status!
@@ -51,19 +58,23 @@ class campaignDetailsPlatformRow extends Component {
       <View
         style={{
           flexDirection: 'row',
+          alignItems: 'center',
           height: 100,
           padding: 20,
         }}>
         <View>
           <Text>
-            {`Status: ${this.props.status}`}
+            {`Platform: ${this.props.platform}`}
           </Text>
           <Text>
-            {`Remaining Budget: ${this.props.remaining_budget}`}
+            {`Status: ${this.props.data.status}`}
+          </Text>
+          <Text>
+            {`Remaining budget: ${this.props.data.remaining_budget}`}
           </Text>
         </View>
       </View>
-    )
+    );
   }
 }
 

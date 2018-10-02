@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import {
   FlatList,
   View,
-  Text
+  Text,
+  StyleSheet,
+  Dimensions
 } from 'react-native';
 
 
@@ -12,31 +14,55 @@ import {
   graphql
 } from 'react-relay';
 
-import CampaignRow from './campaignRow';
+import _ from 'underscore';
+
+import CampaignDetailsPlatformRow from './campaignDetailsPlatformRow';
+const { width, height } = Dimensions.get('window');
+
+
 
 class campaignDetailsPlatformList extends Component {
+  renderHeader(data) {
+    return () => {
+      return (<View>
+        <View style={styles.container}>
+          <Text style={styles.title}>{data.name}</Text>
+        </View>
+        <View style={{
+          flexDirection: 'column',
+          height: 100,
+          padding: 20,
+        }}>
+          <Text>{data.goal}</Text>
+          <Text>{data.total_budget}</Text>
+          <Text>{data.status}</Text>
+        </View>
+      </View >);
+    };
+  }
   render() {
     //Convert map to array with keyname as part of item
-    const dataList = _.keys(this.props.data).map((platform) => {
-      return this.props.data[platform]["platform"] = platform;
-    });
-
-    var some_map = _.chain(some_object_array)
-      .map(item => [item.id, item])
-      .object()
-      .value()
-    console.log("campaignPlatformList:", this.props);
+    const dataList = Object.keys(this.props.data)
+      .filter((key) => !key.includes("_") && this.props.data[key] != null)
+      .map((key, index) => {
+        return {
+          id: index.toString(),
+          platform: key,
+          fragment: this.props.data[key]
+        };
+      });
     return (
       <FlatList
         style={{ flex: 1 }}
         data={dataList}
+        ListHeaderComponent={this.renderHeader(this.props.headerData)}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <CampaignDetailsPlatformRow {...item} navigation={this.props.navigation} />}
+        renderItem={({ item }) => <CampaignDetailsPlatformRow data={item.fragment} platform={item.platform} navigation={this.props.navigation} />}
       />
     );
   }
 }
-
+//
 /*
 type Platforms {
     facebook: Platform
@@ -51,7 +77,7 @@ fragment campaignDetailsPlatformList on Platforms{
     facebook {
       ...campaignDetailsPlatformRow
     }
-    instagram{
+    instagram {
       ...campaignDetailsPlatformRow
     }
     google {
@@ -62,3 +88,31 @@ fragment campaignDetailsPlatformList on Platforms{
     }
 }
 `);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    padding: 10
+  },
+  image: {
+    width: width / 4,
+    height: width / 4,
+    borderRadius: width / 8
+  },
+  descriptionView: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 10
+  },
+  title: {
+    fontSize: 16
+  },
+  description: {
+    fontSize: 12
+  }
+})
