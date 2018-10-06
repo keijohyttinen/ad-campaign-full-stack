@@ -12,6 +12,7 @@ import { environment } from '../relayEnvironment';
 import LoadingComponent from '../components/loadingComponent';
 import CampaignMainView from '../components/campaignMainViewList';
 import CampaignDetails from '../components/campaignDetails';
+import CampaignPlatformDetails from '../components/campaignPlatformDetails';
 
 const campaignQuery = graphql`
   query mainQuery{ 
@@ -51,6 +52,7 @@ class Main extends Component {
 const Nav = createStackNavigator({
   Home: { screen: Main },
   CampaignDetails: { screen: CampaignDetails },
+  CampaignPlatformDetails: { screen: CampaignPlatformDetails },
 });
 
 export default Nav;

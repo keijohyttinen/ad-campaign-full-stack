@@ -5,6 +5,7 @@ import {
   Store
 } from 'relay-runtime';
 
+import Config from 'react-native-config'
 
 function fetchQuery(
   operation,
@@ -12,7 +13,7 @@ function fetchQuery(
   cacheConfig,
   uploadables,
 ) {
-  return fetch('http://localhost:8080/graphql', {
+  return fetch(`${Config.BACKEND_URL}:${Config.BACKEND_PORT}/graphql`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'

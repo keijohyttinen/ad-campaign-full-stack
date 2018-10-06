@@ -15,7 +15,7 @@ import {
 } from 'react-relay';
 
 import LoadingComponent from './loadingComponent';
-import CampaignDetailsPlatformList from './campaignDetailsPlatformList';
+import CampaignPlatformList from './campaignPlatformList';
 import { environment } from '../relayEnvironment';
 
 const { width, height } = Dimensions.get('window');
@@ -29,7 +29,7 @@ const queryCampaignDetails = graphql`
         total_budget
         status
         platforms {
-          ...campaignDetailsPlatformList
+          ...campaignPlatformList
         }
       }
     }
@@ -55,7 +55,6 @@ export default class CampaignDetails extends Component {
         query={queryCampaignDetails}
         variables={variables}
         render={({ error, props }) => {
-
           if (error) {
             const msg = `Error occured:\n${error.message}`
             return <LoadingComponent message={msg} />
@@ -64,24 +63,7 @@ export default class CampaignDetails extends Component {
               return <LoadingComponent message={'Error occured in fetching data from server, please retry'} />
             }
             const data = props.campaigns[0];
-            return <CampaignDetailsPlatformList data={data.platforms} headerData={data} {...this.props} />
-            /*return <View>
-              <View style={styles.container}>
-                <Text style={styles.title}>{data.name}</Text>
-              </View>
-              <View style={{
-                flexDirection: 'column',
-                height: 100,
-                padding: 20,
-              }}>
-                <Text>{data.goal}</Text>
-                <Text>{data.total_budget}</Text>
-                <Text>{data.status}</Text>
-              </View>
-              <View style={styles.container}>
-                <CampaignDetailsPlatformList data={data.platforms} {...this.props} />
-              </View>
-            </View >*/
+            return <CampaignPlatformList data={data.platforms} headerData={data} {...this.props} />
           }
           return <LoadingComponent message='Loading...' />
         }}

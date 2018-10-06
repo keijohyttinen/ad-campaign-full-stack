@@ -16,12 +16,10 @@ import {
 
 import _ from 'underscore';
 
-import CampaignDetailsPlatformRow from './campaignDetailsPlatformRow';
+import CampaignPlatform from './campaignPlatform';
 const { width, height } = Dimensions.get('window');
 
-
-
-class campaignDetailsPlatformList extends Component {
+class campaignPlatformList extends Component {
   renderHeader(data) {
     return () => {
       return (<View>
@@ -40,6 +38,9 @@ class campaignDetailsPlatformList extends Component {
       </View >);
     };
   }
+  capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   render() {
     //Convert map to array with keyname as part of item
     const dataList = Object.keys(this.props.data)
@@ -47,7 +48,7 @@ class campaignDetailsPlatformList extends Component {
       .map((key, index) => {
         return {
           id: index.toString(),
-          platform: key,
+          platform: this.capitalizeFirstLetter(key),
           fragment: this.props.data[key]
         };
       });
@@ -57,34 +58,25 @@ class campaignDetailsPlatformList extends Component {
         data={dataList}
         ListHeaderComponent={this.renderHeader(this.props.headerData)}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <CampaignDetailsPlatformRow data={item.fragment} platform={item.platform} navigation={this.props.navigation} />}
+        renderItem={({ item }) => <CampaignPlatform data={item.fragment} platform={item.platform} navigation={this.props.navigation} />}
       />
     );
   }
 }
-//
-/*
-type Platforms {
-    facebook: Platform
-    instagram: Platform
-    google: Platform
-    adwords: Platform
-}
-*/
 
-export default createFragmentContainer(campaignDetailsPlatformList, graphql`
-fragment campaignDetailsPlatformList on Platforms{
+export default createFragmentContainer(campaignPlatformList, graphql`
+fragment campaignPlatformList on Platforms{
     facebook {
-      ...campaignDetailsPlatformRow
+      ...campaignPlatform
     }
     instagram {
-      ...campaignDetailsPlatformRow
+      ...campaignPlatform
     }
     google {
-      ...campaignDetailsPlatformRow
+      ...campaignPlatform
     }
     adwords{ 
-      ...campaignDetailsPlatformRow
+      ...campaignPlatform
     }
 }
 `);

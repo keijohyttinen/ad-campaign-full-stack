@@ -1,12 +1,18 @@
 
 ## Ad Campaign App
 
-# Make Development build in Mac
+# Install
 
-`yarn run relay --watch`  <-- compile relay continuously with watch
-`yarn test`   <-- run unit tests
+`yarn install`
+`react-native link`
 
-`yarn ios`  <-- run ios react native
+# Development build in Mac
+
+`yarn run relay --watch`  <-- compile relay, continuously with watch option
+`yarn test`               <-- run unit tests
+`yarn ios`                <-- run ios react native
+
+Hin: when using Visual Code with a react native plugin can trigger apps within editor.
 
 # Watch console logs
 
@@ -29,3 +35,10 @@ when having weird issue, suggest to reset tranform cache by
  Design and implementation is based on Relay Modern GraphQL client framework. Apollo Client was considered as an option but in this time Relay Modern was selected even though Apollo is simpler to learn especially with redux background (see https://www.howtographql.com/react-apollo/0-introduction/). 
  
  Main reason to select Relay Modern was to challenge myself to learn something new. Learning Relay Modern also will bring up chance to be able to compare truly two options and to select better GraphQL client framework depending on the case. It seemed like Relay Modern is highly performance optimized & comes with automated server sync and therefore suitable for bigger projects whereas Apollo client is better for smaller projects as it's easier to use (especially with redux) and learn but on the other hand, does not offer auto server sync, for instance. (source: https://blog.smartlogic.io/comparing-relay-modern-and-apollo-graphql-client-frameworks/)
+
+## Date and Time
+
+Date and time is received epoc time in string format due to limitation of big integers in GraphQL API.
+Other options to manage date and time are as follows:
+1. use big integer format and use custom field in schema of GraphQL API or
+2. use ISO date format (string) for date and time

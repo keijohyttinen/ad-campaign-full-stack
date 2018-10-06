@@ -55,16 +55,16 @@ const serverStartupPromise = startDB({
     logger.debug(`Request image ${req.params.name}`);
     dependencies.images.exist({ filename: req.params.name }).then((found) => {
       if (!found) {
-        res.status(404).json(errorResponse(3, `Could not find image file by name ${req.params.name}`, 'Resource not exist'));
+        res.status(404).json(errorResponse('RESOURCE_NOT_EXIST', `Could not find image file by name ${req.params.name}`, 'Resource not exist'));
       }
       res.type(req.params.name);
       dependencies.images.readStreamByFilename({ filename: req.params.name })
         .pipe(res)
         .on('error', (err) => {
-          res.status(400).json(errorResponse(1, `Failed to stream image ${req.params.name}`, err));
+          res.status(400).json(errorResponse('FAILED_TO_READ_IMAGE', `Failed to stream image ${req.params.name}`, err));
         });
     }).catch((err) => {
-      res.status(500).json(errorResponse(2, `Internal error occured when fetching image ${req.params.name}`, err));
+      res.status(500).json(errorResponse('INTERNAL_ERROR', `Internal error occured when fetching image ${req.params.name}`, err));
     });
   });
   return Server.start(opts)

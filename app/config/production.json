@@ -1,8 +1,0 @@
-{
-    "Campaign": {
-        "serverConfig": {
-            "url": "http://localhost",
-            "port": 8080
-        }
-    }
-}
