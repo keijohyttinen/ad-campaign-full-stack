@@ -1,0 +1,996 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders CampaignPlatformDetails correctly 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "#e1e8ee",
+            "borderWidth": 1,
+            "margin": 15,
+            "marginBottom": 0,
+            "padding": 15,
+            "shadowColor": "rgba(0,0,0, .2)",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 1,
+            "shadowRadius": 1,
+          },
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+            undefined,
+          ]
+        }
+      >
+        <View>
+          <Text
+            style={
+              Array [
+                Object {},
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Array [
+                  Object {
+                    "color": "#43484d",
+                    "fontSize": 17.5,
+                    "fontWeight": "bold",
+                    "marginBottom": 15,
+                    "textAlign": "center",
+                  },
+                  undefined,
+                  undefined,
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Your Ad
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#e1e8ee",
+                  "height": 1,
+                },
+                Array [
+                  Object {
+                    "marginBottom": 15,
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Header
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="DevOps Made Easy, We Take care of the heavy lifting for you"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Description
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="DOP SuperHero is where all DevOps is going to happen in the future, join the revolution today!"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Url
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="https://example.io"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Image
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="img1.jpg"
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "#e1e8ee",
+            "borderWidth": 1,
+            "margin": 15,
+            "marginBottom": 0,
+            "padding": 15,
+            "shadowColor": "rgba(0,0,0, .2)",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 1,
+            "shadowRadius": 1,
+          },
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+            undefined,
+          ]
+        }
+      >
+        <View>
+          <Text
+            style={
+              Array [
+                Object {},
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Array [
+                  Object {
+                    "color": "#43484d",
+                    "fontSize": 17.5,
+                    "fontWeight": "bold",
+                    "marginBottom": 15,
+                    "textAlign": "center",
+                  },
+                  undefined,
+                  undefined,
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Target Audience
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#e1e8ee",
+                  "height": 1,
+                },
+                Array [
+                  Object {
+                    "marginBottom": 15,
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Languages
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="FR,EN,DE"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Genders
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="M,F"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Age Range
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="20 - 66"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Locations
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="France,Germany,Switzerland"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Interests
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="Docker,Kubernates,DevOps,AWS,Google Cloud Platform,Ubuntu"
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "#e1e8ee",
+            "borderWidth": 1,
+            "margin": 15,
+            "marginBottom": 0,
+            "padding": 15,
+            "shadowColor": "rgba(0,0,0, .2)",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 1,
+            "shadowRadius": 1,
+          },
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+            undefined,
+          ]
+        }
+      >
+        <View>
+          <Text
+            style={
+              Array [
+                Object {},
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Array [
+                  Object {
+                    "color": "#43484d",
+                    "fontSize": 17.5,
+                    "fontWeight": "bold",
+                    "marginBottom": 15,
+                    "textAlign": "center",
+                  },
+                  undefined,
+                  undefined,
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Insight
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#e1e8ee",
+                  "height": 1,
+                },
+                Array [
+                  Object {
+                    "marginBottom": 15,
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Impressions
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="4503"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Clicks
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="328"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Score
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="5.7"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Cost/Click
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="0.88"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Click Through Rate
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="0.09"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Advanced KPI
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="44.5"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Advanced KPI2
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              style={
+                Object {
+                  "marginBottom": 5,
+                }
+              }
+              underlineColorAndroid="transparent"
+              value="0.0023"
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

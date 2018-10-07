@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import {
-  Text,
   View,
   StyleSheet,
   TouchableOpacity
 } from 'react-native';
+
+import { Text } from 'react-native-elements'
 
 class CampaignMainRow extends Component {
   render() {
@@ -14,12 +15,10 @@ class CampaignMainRow extends Component {
       <TouchableOpacity style={styles.row}
         onPress={() => navigate('CampaignDetails', { ...this.props })}>
         <View>
-          <Text>
-            {this.props.name}
-          </Text>
-          <Text>
-            {this.props.goal}
-          </Text>
+          <Text h4>{this.props.name}</Text>
+          <Text>{`Goal: ${this.props.goal}`}</Text>
+          <Text>{`Budget: ${this.props.total_budget}`}</Text>
+          <Text>{`Status: ${this.props.status}`}</Text>
         </View>
         <View style={styles.spaceView}>
         </View>
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 15,
-    height: 60,
+    marginBottom: 25,
   },
   spaceView: {
     flex: 1

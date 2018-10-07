@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 import {
-  FlatList,
-  View,
-  Text
+  FlatList
 } from 'react-native';
 
 

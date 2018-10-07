@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 
 import {
   Dimensions,
-  Text,
-  View,
-  Image,
-  FlatList,
   StyleSheet
 } from 'react-native';
 
@@ -15,6 +11,7 @@ import {
 } from 'react-relay';
 
 import LoadingComponent from './loadingComponent';
+import ErrorComponent from './errorComponent';
 import CampaignPlatformList from './campaignPlatformList';
 import { environment } from '../relayEnvironment';
 
@@ -56,11 +53,10 @@ export default class CampaignDetails extends Component {
         variables={variables}
         render={({ error, props }) => {
           if (error) {
-            const msg = `Error occured:\n${error.message}`
-            return <LoadingComponent message={msg} />
+            return <ErrorComponent message={error.message} />
           } else if (props) {
             if (props.campaigns == null || props.campaigns.length !== 1) {
-              return <LoadingComponent message={'Error occured in fetching data from server, please retry'} />
+              return <ErrorComponent message={'Error occured in fetching data from the network, please retry'} />
             }
             const data = props.campaigns[0];
             return <CampaignPlatformList data={data.platforms} headerData={data} {...this.props} />

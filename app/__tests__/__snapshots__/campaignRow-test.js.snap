@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`renders CampaignMainRow correctly 1`] = `
 <View
   accessible={true}
   isTVSelectable={true}
@@ -14,17 +14,91 @@ exports[`renders correctly 1`] = `
     Object {
       "alignItems": "center",
       "flexDirection": "row",
-      "height": 60,
+      "marginBottom": 25,
       "marginLeft": 15,
       "opacity": 1,
     }
   }
 >
   <View>
-    <Text>
+    <Text
+      style={
+        Array [
+          Object {},
+          undefined,
+          undefined,
+          undefined,
+          Object {
+            "fontSize": 27.5,
+          },
+          undefined,
+          undefined,
+          undefined,
+          Object {},
+          undefined,
+          undefined,
+        ]
+      }
+    >
       Campaing Row prints TestName-2
     </Text>
-    <Text />
+    <Text
+      style={
+        Array [
+          Object {},
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      Goal: undefined
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {},
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      Budget: undefined
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {},
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      Status: undefined
+    </Text>
   </View>
   <View
     style={
@@ -40,7 +114,23 @@ exports[`renders correctly 1`] = `
       }
     }
   >
-    <Text>
+    <Text
+      style={
+        Array [
+          Object {},
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+        ]
+      }
+    >
       &gt;
     </Text>
   </View>

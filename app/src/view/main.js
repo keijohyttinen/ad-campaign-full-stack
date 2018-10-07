@@ -10,6 +10,7 @@ import { createStackNavigator } from 'react-navigation'
 
 import { environment } from '../relayEnvironment';
 import LoadingComponent from '../components/loadingComponent';
+import ErrorComponent from '../components/errorComponent';
 import CampaignMainView from '../components/campaignMainViewList';
 import CampaignDetails from '../components/campaignDetails';
 import CampaignPlatformDetails from '../components/campaignPlatformDetails';
@@ -34,11 +35,9 @@ class Main extends Component {
       <QueryRenderer
         environment={environment}
         query={campaignQuery}
-        render={({ error, props }) => {
-
+        render={({ error, props, retry }) => {
           if (error) {
-            const msg = `Error occured:\n${error.message}`
-            return <LoadingComponent message={msg} />
+            return <ErrorComponent message={error.message} retry={retry} />
           } else if (props) {
             return <CampaignMainView data={props} {...this.props} />
           }

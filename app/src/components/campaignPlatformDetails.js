@@ -11,7 +11,7 @@ import {
   graphql
 } from 'react-relay';
 
-import { Card, Button } from 'react-native-elements'
+import { Card } from 'react-native-elements'
 import _ from 'underscore';
 
 export default class CampaignPlatformDetails extends Component {

@@ -1,13 +1,11 @@
 import 'react-native';
 import React from 'react';
-import Main from '../src/view/main';
+import ErrorComponent from '../src/components/errorComponent';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-jest.unmock('relay-runtime')
 
-it('renders MainView correctly', () => {
-  const tree = renderer.create(<Main />).toJSON();
+it('renders ErrorComponent correctly', () => {
+  const tree = renderer.create(<ErrorComponent message='Loading test' />).toJSON();
   expect(tree).toMatchSnapshot();
 });
-
