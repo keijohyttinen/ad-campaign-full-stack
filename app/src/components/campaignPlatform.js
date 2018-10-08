@@ -11,46 +11,29 @@ import {
   graphql
 } from 'react-relay';
 
-import { Card, ListItem, Button } from 'react-native-elements'
+import { Card, Button } from 'react-native-elements'
 import _ from 'underscore';
 import { currencyFormat } from '../util/currencyUtil'
+import { toViewParams } from '../util/viewUtil'
 
 class campaignPlatform extends Component {
 
   constructor(props) {
     super(props);
     this.state = { text: 'TODO: support field editing' };
+    this.toViewParams = toViewParams.bind(this);
   }
 
   render() {
     const { navigate } = this.props.navigation;
     let platformName = this.props.platform;
-    let paramMap = {
+    let params = this.toViewParams({
       "Status": this.props.data.status,
       "Total budget": currencyFormat(this.props.data.total_budget),
       "Remaining budget": currencyFormat(this.props.data.remaining_budget),
       "Start date": new Date(parseInt(this.props.data.start_date)).toLocaleString(),
       "End date": new Date(parseInt(this.props.data.end_date)).toLocaleString(),
-    };
-    let params = _.map(paramMap, (value, key) => {
-      return (
-        <View key={key} style={{ flexDirection: 'row', flex: 1 }}>
-          <View style={{ flexDirection: 'column', flex: 1 }}>
-            <Text style={{ marginBottom: 5 }}>
-              {`${key}`}
-            </Text>
-          </View>
-          <View style={{ flexDirection: 'column', flex: 1 }}>
-            <TextInput
-              style={{ marginBottom: 5 }}
-              onChangeText={(text) => this.setState({ text })}
-              value={value}
-            />
-          </View>
-        </View>
-      );
     });
-    //
     return (
       <Card
         title={`${platformName}`}>
@@ -65,7 +48,7 @@ class campaignPlatform extends Component {
     );
   }
 }
-//<View></View>
+
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',

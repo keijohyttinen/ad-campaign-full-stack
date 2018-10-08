@@ -5,7 +5,8 @@ import {
   View,
   Text,
   StyleSheet,
-  Dimensions
+  Dimensions,
+  Picker
 } from 'react-native';
 
 
@@ -15,36 +16,43 @@ import {
 } from 'react-relay';
 
 import _ from 'underscore';
-
 import CampaignPlatform from './campaignPlatform';
-const { width, height } = Dimensions.get('window');
+import { toViewParams } from '../util/viewUtil'
+import { currencyFormat } from '../util/currencyUtil'
 
 class campaignPlatformList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { text: 'TODO: support field editing' };
+    this.toViewParams = toViewParams.bind(this);
+  }
+
   renderHeader(data) {
     return () => {
       return (<View>
         <View style={styles.container}>
           <Text style={styles.title}>{data.name}</Text>
         </View>
-        <View style={{
-          flexDirection: 'column',
-          height: 100,
-          padding: 20,
-        }}>
-          <Text>{data.goal}</Text>
-          <Text>{data.total_budget}</Text>
-          <Text>{data.status}</Text>
+        <View style={styles.descriptionView}>
+          {this.toViewParams({
+            "Goal": data.goal,
+            "Total budget": currencyFormat(data.total_budget),
+            "Status": data.status
+          })}
         </View>
       </View >);
     };
   }
+
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
+
   render() {
     //Convert map to array with keyname as part of item
     const dataList = Object.keys(this.props.data)
-      .filter((key) => !key.includes("_") && this.props.data[key] != null)
+      .filter((key) => !key.includes('_') && this.props.data[key] != null)
       .map((key, index) => {
         return {
           id: index.toString(),
@@ -66,18 +74,18 @@ class campaignPlatformList extends Component {
 
 export default createFragmentContainer(campaignPlatformList, graphql`
 fragment campaignPlatformList on Platforms{
-    facebook {
-      ...campaignPlatform
-    }
-    instagram {
-      ...campaignPlatform
-    }
-    google {
-      ...campaignPlatform
-    }
-    adwords{ 
-      ...campaignPlatform
-    }
+  facebook {
+    ...campaignPlatform
+  }
+  instagram {
+    ...campaignPlatform
+  }
+  google {
+    ...campaignPlatform
+  }
+  adwords{
+    ...campaignPlatform
+  }
 }
 `);
 
@@ -89,20 +97,15 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-start',
-    padding: 10
-  },
-  image: {
-    width: width / 4,
-    height: width / 4,
-    borderRadius: width / 8
+    padding: 5
   },
   descriptionView: {
-    flex: 1,
-    flexDirection: 'row',
-    padding: 10
+    flexDirection: 'column',
+    margin: 20
   },
   title: {
-    fontSize: 16
+    fontSize: 18,
+    padding: 10
   },
   description: {
     fontSize: 12
