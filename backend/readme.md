@@ -31,11 +31,14 @@ API offered by server is based on GraphQL https://graphql.org. GraphQL is a quer
 
 Backend server is based on Graphql-Yoga library which uses express (https://www.npmjs.com/package/express) in the background. The MongoDB example of Graphql-Yoga (see https://github.com/prisma/graphql-yoga/tree/master/examples/mongodb) was taken as a starter to backend implementation.
 
-Schema file of graphql can be found at src/schema.graphql
+Schema file of graphql can be found at [src/graphql/schema.graphql] (https://github.com/keijohyttinen/ad-campaign-full-stack/blob/master/backend/src/graphql/schema.graphql).
+Keep it inline with front-end, which is currently duplicate located under app's react native project.
+
+At the time being only query interface supported but placeholder implementation for mutations also exist.
 
 ## Images
 
-Images are stored into MondoDB with GridFS. Express server is configured to listen /images endpoint for client to download image by name. Server implementation fetches image stream by name from MondoDB with the help of a promisified library called gridfs-promise, and return image in a stream to the client. The better approach for serving the images would be use of AWS S3 or GCP Storage.
+Images are stored into MondoDB with GridFS. Express server is configured to listen /images endpoint for client to download image by name. Server implementation fetches image stream by name from MondoDB with the help of a promisified library called gridfs-promise, and return image in a stream to the client. The downside of the DB based solution is that load of image downloads goes via API nodes and database. The better approach for serving the images would be use of AWS S3 or GCP Storage and inform URL of images via API. 
 
 ## Configuration
 
