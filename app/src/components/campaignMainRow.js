@@ -9,7 +9,6 @@ import { Text } from 'react-native-elements'
 
 class CampaignMainRow extends Component {
   render() {
-    console.log("CampaignMainRow", this.props);
     const { navigate } = this.props.navigation;
     return (
       <TouchableOpacity style={styles.row}

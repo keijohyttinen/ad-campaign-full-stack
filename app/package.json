@@ -7,12 +7,17 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "relay": "relay-compiler --src ./src --schema ./schema.graphql",
+    "relay": "relay-compiler --src ./src --schema ./config/schema.graphql",
     "relay:watch": "yarn relay --watch",
     "ios": "export ENVFILE=.env && react-native run-ios",
     "ios-prod": "export ENVFILE=.env.prod && react-native run-ios",
     "icon": "app-icon generate"
   },
+  "keywords": [
+    "react-native",
+    "graphql",
+    "relay modern"
+  ],
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "@babel/runtime": "^7.1.2",
@@ -52,18 +57,22 @@
     "metro-react-native-babel-preset": "^0.45.6",
     "react-test-renderer": "16.6.0-alpha.0",
     "regenerator-runtime": "^0.12.1",
-    "relay-compiler": "^1.6.2",
-    "relay-mock-network-layer": "^1.2.0"
+    "relay-compiler": "^1.6.2"
   },
   "jest": {
     "preset": "react-native",
+    "setupFiles": [
+      "./config/jest-setup.js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*"
+    ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|react-navigation|react-test-renderer|react-relay|prop-types|relay-mock-network-layer))",
+      "node_modules/(?!(react-native|react-navigation|react-test-renderer|react-relay|prop-types))",
       "__tests__/resources",
       "schema.graphql"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>/__tests__/util",
       "<rootDir>/__tests__/resources"
     ]
   }

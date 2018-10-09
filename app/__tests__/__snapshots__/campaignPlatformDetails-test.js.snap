@@ -86,187 +86,149 @@ exports[`renders CampaignPlatformDetails correctly 1`] = `
           />
         </View>
         <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flexDirection": "row",
+              "height": 600,
+              "opacity": 1,
+              "width": 750,
             }
           }
         >
           <View
+            accessibilityIgnoresInvertColors={true}
             style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "flex": 2,
+                  "justifyContent": "center",
+                },
+                Object {
+                  "borderRadius": 93.75,
+                  "height": 187.5,
+                  "width": 625,
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "undefined:undefined/images/img1.jpg",
+                }
               }
+              style={
+                Array [
+                  Object {
+                    "bottom": 0,
+                    "left": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  },
+                  Object {
+                    "height": undefined,
+                    "width": undefined,
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "center",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingBottom": 5,
+                  "paddingLeft": 15,
+                  "paddingRight": 15,
+                  "paddingTop": 15,
+                },
+                Object {
+                  "flex": 1,
+                  "marginBottom": 10,
+                  "width": 625,
+                },
+              ]
             }
           >
             <Text
               style={
+                Array [
+                  Object {},
+                  undefined,
+                  undefined,
+                  undefined,
+                  Object {
+                    "fontSize": 27.5,
+                  },
+                  undefined,
+                  undefined,
+                  undefined,
+                  Object {},
+                  undefined,
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "marginBottom": 5,
+                    },
+                    Object {
+                      "flexDirection": "column",
+                      "flexWrap": "wrap",
+                      "fontSize": 16,
+                      "width": 625,
+                    },
+                  ],
+                ]
+              }
+            >
+              DevOps Made Easy, We Take care of the heavy lifting for you
+            </Text>
+            <View
+              style={
                 Object {
-                  "marginBottom": 5,
+                  "flexDirection": "column",
+                  "flexWrap": "wrap",
+                  "fontSize": 12,
+                  "width": 535.7142857142858,
                 }
               }
             >
-              Header
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <TextInput
-              allowFontScaling={true}
-              onChangeText={[Function]}
-              style={
-                Object {
-                  "marginBottom": 5,
+              <Text>
+                DOP SuperHero is where all DevOps is going to happen in the future, join the revolution today!
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "blue",
+                  }
                 }
-              }
-              underlineColorAndroid="transparent"
-              value="DevOps Made Easy, We Take care of the heavy lifting for you"
-            />
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "marginBottom": 5,
-                }
-              }
-            >
-              Description
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <TextInput
-              allowFontScaling={true}
-              onChangeText={[Function]}
-              style={
-                Object {
-                  "marginBottom": 5,
-                }
-              }
-              underlineColorAndroid="transparent"
-              value="DOP SuperHero is where all DevOps is going to happen in the future, join the revolution today!"
-            />
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "marginBottom": 5,
-                }
-              }
-            >
-              Url
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <TextInput
-              allowFontScaling={true}
-              onChangeText={[Function]}
-              style={
-                Object {
-                  "marginBottom": 5,
-                }
-              }
-              underlineColorAndroid="transparent"
-              value="https://example.io"
-            />
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "marginBottom": 5,
-                }
-              }
-            >
-              Image
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <TextInput
-              allowFontScaling={true}
-              onChangeText={[Function]}
-              style={
-                Object {
-                  "marginBottom": 5,
-                }
-              }
-              underlineColorAndroid="transparent"
-              value="img1.jpg"
-            />
+              >
+                https://example.io
+              </Text>
+            </View>
           </View>
         </View>
       </View>

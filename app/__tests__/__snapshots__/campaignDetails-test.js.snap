@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CampaignDetails test renders CampaignDetails correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text>
+     
+    Loading...
+     
+  </Text>
+</View>
+`;
+
+exports[`CampaignDetails test renders CampaignDetails with error 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text>
+     
+    Loading...
+     
+  </Text>
+</View>
+`;

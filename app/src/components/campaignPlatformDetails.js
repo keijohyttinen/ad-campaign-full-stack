@@ -59,13 +59,6 @@ export default class CampaignPlatformDetails extends Component {
       "Advanced KPI2": platformData.insights.advanced_kpi_2,
     });
 
-    /*
-    <Image
-                style={styles.image}
-                resizeMode="cover"
-                source={{ uri: platformData.creatives.image }}
-              />
-    */
     return (
       <ScrollView>
 

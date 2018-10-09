@@ -20,7 +20,7 @@
 - Nodemon
 - gridfs-promise https://github.com/larsdecker/gridfs-promise
 - winston https://www.npmjs.com/package/winston
-- Mocha 
+- Mocha
 - Babel CLI (npm install -g babel-cli)
 
 # Design & Implementation
@@ -35,7 +35,7 @@ Schema file of graphql can be found at src/schema.graphql
 
 ## Images
 
-Images are stored into MondoDB with GridFS. Express server is configured to listen /images endpoint for client to download image by name. Server implementation fetches image stream by name from MondoDB with the help of a promisified library called gridfs-promise, and return image in a stream to the client.
+Images are stored into MondoDB with GridFS. Express server is configured to listen /images endpoint for client to download image by name. Server implementation fetches image stream by name from MondoDB with the help of a promisified library called gridfs-promise, and return image in a stream to the client. The better approach for serving the images would be use of AWS S3 or GCP Storage.
 
 ## Configuration
 
@@ -43,8 +43,8 @@ Configuration is stored in config folder. Defaults are in default.json and produ
 
 ## Logging
 
-Logging is based on winston library that offers file transports for errors and all logs but also console debug logs in a non-production configuration.
+Logging is based on winston library that offers file transports for errors and info logs but also console debug logs in a non-production configuration.
 
 ## Unit tests
 
-Unit tests are implemented by using mocha test framework and decided not to mock MondoDB to see earlier possible integration issues with MongoDB. Also it would be somewhat extra work and cumbersome to write mocks even with help of some mock library especially when docker enables easy and fast setup for MongoDB instance running at localhost. Basically, from developer point of view, the verification of the backend change can be still done easily and fast even if mongoDB dependency exist. Benefit of requiring mondoDB for unit tests is that there is no need to do further dedicated semi-integration tests for a backend change with mongoDB after unit tests - but developer can focus on system integration tests between client and backend which covers database. Therefore decided to require MongoDB with docker-compose for passing unit tests succesfully.
+Unit tests are implemented by using mocha test framework and decided not to mock MondoDB to see as early as possible integration issues with MongoDB. Also it would be somewhat extra work and cumbersome to write mocks even with help of some mock library especially when docker enables easy and fast setup for MongoDB instance running at localhost. Basically, from developer point of view, the verification of the backend change can be still done easily and fast even if mongoDB dependency exist. Benefit of requiring mondoDB for unit tests is that there is no need to do further dedicated middle-integration tests for a backend change with mongoDB after unit tests - but developer can focus on system integration tests between client and backend which covers database. Therefore decided to require MongoDB with docker-compose for passing unit tests succesfully.

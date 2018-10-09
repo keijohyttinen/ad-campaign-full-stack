@@ -47,7 +47,7 @@ export default class CampaignDetails extends Component {
       id: campaignData.id
     };
     return (
-      <QueryRenderer
+      < QueryRenderer
         environment={environment}
         query={queryCampaignDetails}
         variables={variables}
@@ -62,42 +62,12 @@ export default class CampaignDetails extends Component {
             return <CampaignPlatformList data={data.platforms} headerData={data} {...this.props} />
           }
           return <LoadingComponent message='Loading...' />
-        }}
+        }
+        }
       />
 
     )
   }
 }
 
-/*<Image style={styles.image}
-                source={{ uri: item.node.coverUrl }}
-              />*/
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  row: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    padding: 10
-  },
-  image: {
-    width: width / 4,
-    height: width / 4,
-    borderRadius: width / 8
-  },
-  descriptionView: {
-    flex: 1,
-    flexDirection: 'row',
-    padding: 10
-  },
-  title: {
-    fontSize: 16
-  },
-  description: {
-    fontSize: 12
-  }
-})
 

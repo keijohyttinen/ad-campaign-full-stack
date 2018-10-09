@@ -752,10 +752,6 @@
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.2.tgz#54c5a964462be3d4d78af631363c18d6fa91ac26"
 
-"@types/graphql@^0.9.0":
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.9.4.tgz#cdeb6bcbef9b6c584374b81aa7f48ecf3da404fa"
-
 abab@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.0.tgz#aba0ab4c5eee2d4c79d3487d85450fb2376ebb0f"
@@ -2913,15 +2909,6 @@ graphql-compiler@1.6.2:
     chalk "^1.1.1"
     fb-watchman "^2.0.0"
     immutable "~3.7.6"
-
-graphql-tools@^1.2.1:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-1.2.3.tgz#079bf4d157e46c0a0bae9fec117e0eea6e03ba2c"
-  dependencies:
-    deprecated-decorator "^0.1.6"
-    uuid "^3.0.1"
-  optionalDependencies:
-    "@types/graphql" "^0.9.0"
 
 graphql-tools@^4.0.0:
   version "4.0.0"
@@ -5413,12 +5400,6 @@ relay-compiler@^1.6.2:
     signedsource "^1.0.0"
     yargs "^9.0.0"
 
-relay-mock-network-layer@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/relay-mock-network-layer/-/relay-mock-network-layer-1.2.0.tgz#bcf30aa2d8c9c840f6c5744d008663c2f57a7819"
-  dependencies:
-    graphql-tools "^1.2.1"
-
 relay-runtime@1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-1.6.2.tgz#5ecd43d92799e761454200b455dd1c0cb0259659"
@@ -6232,7 +6213,7 @@ uuid@3.0.1:
   version "3.0.1"
   resolved "http://registry.npmjs.org/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
 
-uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2:
+uuid@^3.1.0, uuid@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 

@@ -6,12 +6,6 @@ import CampaignPlatformDetails from '../src/components/campaignPlatformDetails';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-beforeEach(function () {
-});
-
-afterEach(function () {
-});
-
 it('renders CampaignPlatformDetails correctly', () => {
   let data = JSON.parse(fs.readFileSync('__tests__/resources/data.json'));
   const props = {

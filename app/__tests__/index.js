@@ -4,7 +4,6 @@ import Main from '../src/view/main';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-jest.unmock('relay-runtime')
 
 it('renders MainView correctly', () => {
   const tree = renderer.create(<Main />).toJSON();
